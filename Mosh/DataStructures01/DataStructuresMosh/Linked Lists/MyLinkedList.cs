@@ -14,22 +14,38 @@ namespace DataStructuresMosh.Linked_Lists
             list.AddLast(10);
             list.AddLast(20);
             list.AddLast(30);
+            list.AddLast(40);
+            list.AddLast(50);
+            list.AddLast(60);
+            list.AddLast(70);
+            list.AddLast(80);
+            list.AddLast(90);
+            list.AddLast(100);
             list.Print();
-            Console.WriteLine("The item you searched for is index {0}", list.IndexOf(70));
-            Console.WriteLine("the Linked List is of size {0}", list.Size());
-            Console.WriteLine("Item in Linked List = {0}", list.Contains(20));
-            list.RemoveLast();
-            list.Print();
+            // Console.WriteLine("The item you searched for is index {0}", list.IndexOf(70));
+            // Console.WriteLine("the Linked List is of size {0}", list.Size());
+            // Console.WriteLine("Item in Linked List = {0}", list.Contains(20));
+            // list.RemoveLast();
+            // list.Print();
             Console.WriteLine("the Linked List is of size {0}", list.Size());
             var array = list.ToArray();
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("copied array item {0} = {1}", i, array[i]);
             }
+            list.getKthFromTheEnd(3);
+
+            list.Reverse();
+            var ReverseArray = list.ToArray();
+            for (int i = 0; i < ReverseArray.Length; i++)
+            {
+                Console.WriteLine("Reversed array item {0} = {1}", i, ReverseArray[i]);
+            }
+            list.getKthFromTheEnd(5);
+            
         }
 
     }
-
     class MyLinkedList  // Mosh Version
     {
         private class Node
@@ -69,6 +85,48 @@ namespace DataStructuresMosh.Linked_Lists
                 first = node;               
             }
             size++;
+        }
+
+        // !!! INTERVIEW QUESTION
+        // getKthFromTheEnd (18/19)
+        public int getKthFromTheEnd(int k){
+            // if(isEmpty() || k > size) return -1;     | This works, but in interview they may say we don't know size of linklist, moved to for loop
+            if(isEmpty()) throw new ArgumentException();
+
+            Node firstRef = first;
+            Node secondRef = first;
+            for (int i = 0; i < k-1; i++){
+                secondRef = secondRef.next;
+                if (secondRef == null)
+                    throw new ArgumentException();
+            }
+            while (secondRef != last){
+                firstRef = firstRef.next;
+                secondRef = secondRef.next;
+            }
+            Console.WriteLine("The kth from the end is {0}", firstRef.value);
+            return firstRef.value;
+        }
+
+
+        // !!! INTERVIEW QUESTION
+        // Reverse (17)                     // reverse the list           |     first    |    current   |            |            |      last
+        public void Reverse()               // reverse the list                 10             20            30            40             50
+        {                                   // Get 2 nodes at a time            [               ]
+           if(isEmpty()) return;            // Use our isEmpty method, if empty exit | could add comment or exception to inform list is empty
+
+            var previous = first;           //                                previous   ->      
+            var current = first.next;       //                                                current   ->      
+            
+            while (current != null){
+                var next = current.next;    //                                                               next
+                current.next = previous;    //                                previous   <-  current.next        
+                previous = current;         //                                   >>           previous
+                current = next;             //                                                   >>          current  
+            }
+            last = first;                   // stored reference
+            last.next = null;               // Clear up the reference left over from first.next in the original list which was pointing to 20
+            first = previous;               //                                   >>                                                      first       ...next will be null (end of list) and first gets set to previous
         }
 
         // addLast  (5)
@@ -190,7 +248,7 @@ namespace DataStructuresMosh.Linked_Lists
 
         private Boolean isEmpty()
         {
-            return first == null;
+            return first == null;                    // if first is null, return true
         }
     }
 }
