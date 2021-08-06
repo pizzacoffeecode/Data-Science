@@ -34,39 +34,39 @@ namespace DataStructuresMosh.Linked_Lists
     {
         private class Node
         {
-            protected internal int value
+            protected internal int value    
             {
                 get; set;
             }
-            protected internal Node next
+            protected internal Node next    // 
             {
                 get; set;
             }
 
-            public Node(int value)
+            public Node(int value)          // constructor
             {
-                this.value = value;
+                this.value = value;         // initialize data
             }
         }
 
-        private Node first;
-        private Node last;
-        private int size;
+        private Node first;                 // first node   
+        private Node last;                  // last node  
+        private int size;                   // number of nodes in list
 
         //----------------
 
         // addFirst (6)
-        public void AddFirst(int item)
+        public void AddFirst(int item)      // add item to front of list
         {
-            var node = new Node(item);
-            if (isEmpty())
+            var node = new Node(item);      // create a new node
+            if (isEmpty())                  // if list is empty
             {
                 first = last = node;        // This syntax is cool, intitializes both variabls to node
             }
             else
             {
-                node.next = first;
-                first = node;
+                node.next = first;        
+                first = node;               
             }
             size++;
         }
@@ -93,15 +93,15 @@ namespace DataStructuresMosh.Linked_Lists
             {
                 throw new InvalidOperationException("Sequence contains no elements");
             }
-            if (first == last)
-                first = last = null;
-            else
+            if (first == last)                      // if only one node in list
+                first = last = null;                // set both nodes to null
+            else                                    // if more than one node in list
             {
-                var second = first.next;        // <-- This is better than my way 
-                first.next = null;
-                first = second;
+                var second = first.next;            // save the second node
+                first.next = null;                  // break the link between the first node and the next node
+                first = second;                     // set the first node to the second node
             }
-            size--;
+            size--;                                 // decrement the size of the list
         }
 
         // RemoveLast 10
@@ -109,28 +109,28 @@ namespace DataStructuresMosh.Linked_Lists
         {
             if (isEmpty())
             {
-                throw new InvalidOperationException("Sequence contains no elements");
+                throw new InvalidOperationException("Sequence contains no elements");  
             }
             if (first == last)
-                first = last = null;
+                first = last = null;                // if only one node in list
             else
             {
-                var previous = GetPrevious(last);
+                var previous = GetPrevious(last);   // save the previous node of the last node
                 Console.WriteLine("The last node '{0}' was removed", last.value);
-                last = previous;
+                last = previous;                    // set the last node to the previous node
                 last.next = null;
             }
             size--;
         }
 
-        private Node GetPrevious(Node node)
+        private Node GetPrevious(Node node)         // get previous node
         {
-            var current = first;
-            while (current != null)     // Meaning we haven't reached the end of the list
+            var current = first;                    // start at the first node
+            while (current != null)                 // Meaning we haven't reached the end of the list
             {
-                if (current.next == node)
+                if (current.next == node)           // If the current node is the node we want
                     return current;
-                current = current.next;
+                current = current.next;             // Go to the next node
             }
             return null;
         }
@@ -138,11 +138,11 @@ namespace DataStructuresMosh.Linked_Lists
         // contains (8)
         public bool Contains(int item)
         {
-            return IndexOf(item) != -1;
+            return IndexOf(item) != -1;    // See below... 
         }
 
         // indexOf (7)
-        public int IndexOf(int item)       //  This is qaulity, this is to iterate over an object that is not an enumerator or has no index
+        public int IndexOf(int item)       //  This is qaulity, this is to iterate over an object that is not an enumerator or has no index 
         {
             int index = 0;
             var current = first;
@@ -165,13 +165,13 @@ namespace DataStructuresMosh.Linked_Lists
         //ToArray
         public int[] ToArray()
         {
-            int[] array = new int[size];
+            int[] array = new int[size];            // create an array of the right size
             var current = first;
             int index = 0;
-            while (current != null)
+            while (current != null)                 // Meaning we haven't reached the end of the list
             {
-                array[index++] = current.value;
-                current = current.next;
+                array[index++] = current.value;     // add the value of the current node to the array
+                current = current.next;             // go to the next node
             }
             return array;
         }
