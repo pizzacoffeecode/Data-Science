@@ -5,4 +5,26 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Arrays\MyArrayClass.cs" />
+    <Compile Remove="Arrays\MyVersion\ArrayClass.cs" />
+    <Compile Remove="Arrays\MyVersion\Program.cs" />
+    <Compile Remove="Linked Lists\MyVersion\LinkedListClass.cs" />
+    <Compile Remove="Linked Lists\MyVersion\Program.cs" />
+    <Compile Remove="Stacks\Exercises\Expression.cs" />
+    <Compile Remove="Stacks\Exercises\StringReverser.cs" />
+    <Compile Remove="Stacks\NativeStacks\NativeStacks.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Arrays\MyArrayClass.cs" />
+    <None Include="Arrays\MyVersion\ArrayClass.cs" />
+    <None Include="Arrays\MyVersion\Program.cs" />
+    <None Include="Linked Lists\MyVersion\LinkedListClass.cs" />
+    <None Include="Linked Lists\MyVersion\Program.cs" />
+    <None Include="Stacks\Exercises\Expression.cs" />
+    <None Include="Stacks\Exercises\StringReverser.cs" />
+    <None Include="Stacks\NativeStacks\NativeStacks.cs" />
+  </ItemGroup>
+
 </Project>
