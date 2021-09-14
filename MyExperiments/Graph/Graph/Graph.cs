@@ -42,13 +42,14 @@ namespace GraphStructure
             }
 
 
-            //if (this.EdgeDirection == EdgeDirection.UNDIRECTED)
-            //{
-            Node destinationNode;
-            if (Nodes.TryGetValue(destination, out destinationNode))
+            if (this.EdgeDirection == EdgeDirection.UNDIRECTED)
             {
-                Console.WriteLine("adding undirected");
-                sourceNode.AddAdjacent(source);
+                Node destinationNode;
+                if (Nodes.TryGetValue(destination, out destinationNode))
+                {
+                    Console.WriteLine("adding undirected");
+                    destinationNode.AddAdjacent(source);
+                }
             }
         }
 

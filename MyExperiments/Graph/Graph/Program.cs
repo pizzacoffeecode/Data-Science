@@ -7,27 +7,23 @@ namespace GraphStructure
     {
         static void Main(string[] args)
         {
-            //Node node = new Node(0);
-            //Node node1 = new Node(1);
-            //Node node2 = new Node(2);
-            //Console.WriteLine(node);
-            //Console.WriteLine(node.Value);
-
             Graph graph = new Graph(EdgeDirection.UNDIRECTED);
 
             graph.AddVertex(0);
             graph.AddVertex(1);
             graph.AddVertex(2);
+            graph.AddVertex(3);
+            graph.AddVertex(4);
+            graph.AddVertex(5);
 
             PrintNodes(graph.Nodes);
 
-
-
-            graph.AddEdge(0, 1);
-            graph.AddEdge(0, 2);
+            graph.AddEdge(1, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(1, 5);
+            graph.AddEdge(4, 5);
 
             PrintGraph(graph.Nodes);
-
 
             // Program Helper Methods
             void PrintNodes(SortedDictionary<int, Node> nodes)
@@ -49,13 +45,6 @@ namespace GraphStructure
                     Console.WriteLine($"{pair.Key} : {result}");
 
                 }
-                //var list = new List<int>(nodes.Keys);   // Copy keys to list
-                //Node node;
-                //foreach (var key in list)
-                //{
-                //    nodes.TryGetValue(key, out node);
-                //    node.PrintAdjacents();
-                //}
             }
 
         }
