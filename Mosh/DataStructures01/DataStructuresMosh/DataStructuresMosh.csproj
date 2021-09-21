@@ -9,9 +9,16 @@
     <Compile Remove="Arrays\MyArrayClass.cs" />
     <Compile Remove="Arrays\MyVersion\ArrayClass.cs" />
     <Compile Remove="Arrays\MyVersion\Program.cs" />
+    <Compile Remove="BigO.cs" />
+    <Compile Remove="Linked Lists\MyLinkedList.cs" />
     <Compile Remove="Linked Lists\MyVersion\LinkedListClass.cs" />
+    <Compile Remove="Linked Lists\MyVersion\Node.cs" />
     <Compile Remove="Linked Lists\MyVersion\Program.cs" />
+    <Compile Remove="Queues\ArrayQueue.cs" />
+    <Compile Remove="Queues\Queue.cs" />
     <Compile Remove="Stacks\Exercises\Expression.cs" />
+    <Compile Remove="Stacks\Exercises\MyArrayStack\MyArrayStack.cs" />
+    <Compile Remove="Stacks\Exercises\ReverseQueue.cs" />
     <Compile Remove="Stacks\Exercises\StringReverser.cs" />
     <Compile Remove="Stacks\NativeStacks\NativeStacks.cs" />
   </ItemGroup>
@@ -20,11 +27,22 @@
     <None Include="Arrays\MyArrayClass.cs" />
     <None Include="Arrays\MyVersion\ArrayClass.cs" />
     <None Include="Arrays\MyVersion\Program.cs" />
+    <None Include="BigO.cs" />
+    <None Include="Linked Lists\MyLinkedList.cs" />
     <None Include="Linked Lists\MyVersion\LinkedListClass.cs" />
+    <None Include="Linked Lists\MyVersion\Node.cs" />
     <None Include="Linked Lists\MyVersion\Program.cs" />
+    <None Include="Queues\ArrayQueue.cs" />
+    <None Include="Queues\Queue.cs" />
+    <None Include="Queues\ReverseQueue.cs" />
     <None Include="Stacks\Exercises\Expression.cs" />
+    <None Include="Stacks\Exercises\MyArrayStack\MyArrayStack.cs" />
     <None Include="Stacks\Exercises\StringReverser.cs" />
     <None Include="Stacks\NativeStacks\NativeStacks.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Trees\" />
   </ItemGroup>
 
 </Project>
