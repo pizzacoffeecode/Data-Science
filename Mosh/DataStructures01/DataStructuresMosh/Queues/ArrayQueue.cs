@@ -52,22 +52,11 @@ namespace DataStructuresMosh.Queues
     }
     public class ArrayQueue
     {
-        public int[] items
-        {
-            get; set;
-        }
-        public int Rear
-        {
-            get; set;
-        }
-        public int Front
-        {
-            get; set;
-        }
-        public int Count
-        {
-            get; set;
-        }
+        public int[] items{get; set;}
+        public int Rear{get; set;}
+        public int Front{get; set;}
+        public int Count{get; set;}
+
         public ArrayQueue(int capacity)
         {
             items = new int[capacity];                  // Set queue capacity in constructor

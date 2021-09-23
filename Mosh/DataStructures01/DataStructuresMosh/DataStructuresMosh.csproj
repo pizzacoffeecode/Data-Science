@@ -16,6 +16,7 @@
     <Compile Remove="Linked Lists\MyVersion\Program.cs" />
     <Compile Remove="Queues\ArrayQueue.cs" />
     <Compile Remove="Queues\Queue.cs" />
+    <Compile Remove="Queues\Queue2Stacks.cs" />
     <Compile Remove="Stacks\Exercises\Expression.cs" />
     <Compile Remove="Stacks\Exercises\MyArrayStack\MyArrayStack.cs" />
     <Compile Remove="Stacks\Exercises\ReverseQueue.cs" />
@@ -34,6 +35,7 @@
     <None Include="Linked Lists\MyVersion\Program.cs" />
     <None Include="Queues\ArrayQueue.cs" />
     <None Include="Queues\Queue.cs" />
+    <None Include="Queues\Queue2Stacks.cs" />
     <None Include="Queues\ReverseQueue.cs" />
     <None Include="Stacks\Exercises\Expression.cs" />
     <None Include="Stacks\Exercises\MyArrayStack\MyArrayStack.cs" />

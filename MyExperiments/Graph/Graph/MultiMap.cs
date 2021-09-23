@@ -1,34 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Graph
 {
-    class MultiMap<TKey, TValue, T>
+    public class MultiMap<T>
     {
         //public TKey Key{get; set;}
         //public TValue Value {get; set;}
         //public T t { get; set; }
-        public SortedDictionary<TKey, List<TValue>> Store {get; set;}
-        public TKey Key {get; set;}
-        public TValue Value {get; set;}
+        public SortedDictionary<T, List<T>> Store {get; set;}
         public MultiMap()
         {
-            this.Store = new SortedDictionary<TKey, List<TValue>>();
+            this.Store = new SortedDictionary<T, List<T>>();
         }
-        public void Add(TKey data1, TValue data2)
+        public void Add(T data1, T data2)
         {
-            List<TValue> pullList;
+            List<T> pullList;
             if (Store.Count == 0 || !Store.TryGetValue(data1, out pullList))
             {
-                List<TValue> pushList = new List<TValue> { data2 };
+                List<T> pushList = new List<T> { data2 };
                 Store.Add(data1, pushList);
             }
             else if (!Store.TryGetValue(data1, out pullList))
             {
-                pullList = new List<TValue>();
+                pullList = new List<T>();
                 Store.Add(data1, pullList);
             }
             else

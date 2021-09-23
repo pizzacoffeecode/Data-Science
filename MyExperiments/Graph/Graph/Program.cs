@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
+using Graph;
 
 namespace GraphStructure
 {
@@ -26,13 +27,12 @@ namespace GraphStructure
             graph.AddEdge(4, 3);
 
             //PrintGraph(graph.Nodes);
-
             //PrintEdges(graph.Edges);
-            PrintEdges2(graph.Edges2);
 
+
+            PrintEdges2(graph.Multi);
 
             Console.ReadKey();
-
 
             // Program Helper Methods
             void PrintNodes(SortedDictionary<int, Node> nodes)
@@ -56,16 +56,16 @@ namespace GraphStructure
                 }
             }
 
-            void PrintEdges(ArrayList edges)
-            {
-                string result = string.Join("", edges.ToArray());
-                Console.WriteLine($"Edge List = {result}");
-            }
+            //void PrintEdges(ArrayList edges)
+            //{
+            //    string result = string.Join("", edges.ToArray());
+            //    Console.WriteLine($"Edge List = {result}");
+            //}
 
 
-            void PrintEdges2(SortedDictionary<int, List<int>> edge2)
+            void PrintEdges2(MultiMap<int> multiMap)
             {
-                foreach (KeyValuePair<int, List<int>> pair in edge2)
+                foreach (KeyValuePair<int, List<int>> pair in multiMap.Store)
                 {
                     string result = string.Join("", pair.Value);
                     Console.WriteLine($"{pair.Key} : {result}");
